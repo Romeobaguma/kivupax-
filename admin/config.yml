@@ -1,6 +1,11 @@
 backend:
   name: git-gateway
   branch: main
+  media_library:
+  name: cloudinary
+  config:
+    cloud_name: vzh3xban
+    api_key: 851826499922689
 
 locale: fr
 
