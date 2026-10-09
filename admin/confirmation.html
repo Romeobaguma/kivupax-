@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créer mon mot de passe — Paix & Médias</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; background: #0a2540; color: #fff;
+           display: flex; align-items: center; justify-content: center;
+           min-height: 100vh; margin: 0; }
+    .box { background: #fff; color: #1a1f2e; padding: 40px;
+           border-radius: 12px; max-width: 420px; width: 90%;
+           box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
+    h1 { color: #0a2540; margin-bottom: 24px; font-size: 1.4rem; }
+    label { display: block; margin-bottom: 8px; font-weight: 600;
+            font-size: 0.9rem; }
+    input { width: 100%; padding: 12px; border: 1px solid #e2e8f0;
+            border-radius: 8px; margin-bottom: 18px; font-size: 1rem;
+            box-sizing: border-box; }
+    button { width: 100%; padding: 14px; background: #f4a261;
+             color: #0a2540; border: none; border-radius: 50px;
+             font-weight: 700; font-size: 1rem; cursor: pointer; }
+    button:hover { background: #e76f51; }
+    .msg { margin-top: 16px; font-size: 0.9rem; }
+    .success { color: #1a7f4b; }
+    .error { color: #c0392b; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Créer votre mot de passe</h1>
+    <div id="form">
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" placeholder="Au moins 6 caractères" />
+      <button onclick="setPassword()">Valider</button>
+    </div>
+    <div id="message" class="msg"></div>
+  </div>
+
+  <script>
+    // Initialise Netlify Identity
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', user => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/';
+          });
+        }
+      });
+    }
+
+    function setPassword() {
+      const pwd = document.getElementById('password').value;
+      const msg = document.getElementById('message');
+
+      if (pwd.length < 6) {
+        msg.textContent = 'Le mot de passe doit contenir au moins 6 caractères.';
+        msg.className = 'msg error';
+        return;
+      }
+
+      const user = window.netlifyIdentity.currentUser();
+      if (!user) {
+        msg.textContent = 'Session expirée. Rouvrez le lien depuis votre email.';
+        msg.className = 'msg error';
+        return;
+      }
+
+      user.update({ password: pwd })
+        .then(() => {
+          msg.textContent = 'Mot de passe créé ! Redirection…';
+          msg.className = 'msg success';
+          setTimeout(() => { window.location.href = '/admin/'; }, 1500);
+        })
+        .catch(err => {
+          msg.textContent = 'Erreur : ' + err.message;
+          msg.className = 'msg error';
+        });
+    }
+  </script>
+</body>
+</html>
