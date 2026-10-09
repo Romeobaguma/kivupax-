@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photos — Paix & Médias</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">☮</span>
+        <span class="logo-text">Paix <em>&</em> Médias</span>
+      </a>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html">Accueil</a>
+        <a href="articles.html">Articles</a>
+        <a href="videos.html">Vidéos</a>
+        <a href="photos.html" class="active">Photos</a>
+        <a href="documents.html">Documents</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Regards</p>
+      <h1>Galerie photo</h1>
+      <p class="page-sub">
+        Portraits, scènes de vie et témoignages visuels
+        des artisans de paix.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="photo-grid" id="liste-photos">
+        <p class="empty-msg">Chargement des photos…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose">×</button>
+    <img src="" alt="" id="lightboxImg">
+    <p id="lightboxCaption"></p>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="logo logo-footer">
+          <span class="logo-icon">☮</span>
+          <span class="logo-text">Paix <em>&</em> Médias</span>
+        </a>
+        <p class="footer-desc">Plateforme indépendante dédiée à la promotion de la paix à travers le journalisme et les médias.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="articles.html">Articles</a></li>
+          <li><a href="videos.html">Vidéos</a></li>
+          <li><a href="photos.html">Photos</a></li>
+          <li><a href="documents.html">Documents</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>contact@paixmedias.org</li>
+          <li>Kinshasa, RDC</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Paix & Médias — Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

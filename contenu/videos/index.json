@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Mains de paix — documentaire (12 min)",
+    "date": "2026-03-20",
+    "thumbnail": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800",
+    "description": "Portrait croisé de trois artisans de paix sur trois continents : une médiatrice congolaise, un ancien combattant colombien et une enseignante nord-irlandaise.",
+    "url": "https://www.youtube.com"
+  },
+  {
+    "title": "Le dialogue, arme ultime",
+    "date": "2026-02-14",
+    "thumbnail": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800",
+    "description": "Comment des communautés divisées ont réappris à se parler. Reportage dans les Balkans.",
+    "url": "https://www.youtube.com"
+  },
+  {
+    "title": "Jeunesses en marche pour la paix",
+    "date": "2026-01-30",
+    "thumbnail": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800",
+    "description": "Ils ont entre 18 et 25 ans et refusent la fatalité du conflit. Rencontre avec les nouvelles générations d'activistes.",
+    "url": "https://www.youtube.com"
+  }
+]
