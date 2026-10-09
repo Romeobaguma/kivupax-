@@ -1,7 +1,8 @@
 backend:
   name: git-gateway
   branch: main
-  media_library:
+
+media_library:
   name: cloudinary
   config:
     cloud_name: vzh3xban
@@ -13,7 +14,6 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  # ---------- ARTICLES ----------
   - name: "articles"
     label: "Articles"
     label_singular: "Article"
@@ -36,7 +36,6 @@ collections:
       - { label: "Résumé", name: "body", widget: "markdown" }
       - { label: "Lien externe", name: "url", widget: "string", required: false }
 
-  # ---------- VIDÉOS ----------
   - name: "videos"
     label: "Vidéos"
     label_singular: "Vidéo"
@@ -48,9 +47,8 @@ collections:
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Miniature", name: "thumbnail", widget: "image", required: false }
       - { label: "Description", name: "description", widget: "text" }
-      - { label: "Lien de la vidéo (YouTube, Vimeo, Cloudinary…)", name: "url", widget: "string" }
+      - { label: "Lien de la vidéo (YouTube, Vimeo…)", name: "url", widget: "string" }
 
-  # ---------- PHOTOS ----------
   - name: "photos"
     label: "Photos"
     label_singular: "Photo"
@@ -61,7 +59,6 @@ collections:
       - { label: "Titre / Légende", name: "title", widget: "string" }
       - { label: "Image", name: "image", widget: "image" }
 
-  # ---------- DOCUMENTS ----------
   - name: "documents"
     label: "Documents"
     label_singular: "Document"
