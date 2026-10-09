@@ -16,57 +16,73 @@ public_folder: "/images/uploads"
 collections:
   - name: "articles"
     label: "Articles"
-    label_singular: "Article"
-    folder: "contenu/articles"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Titre", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - label: "Catégorie"
-        name: "category"
-        widget: "select"
-        options:
-          - { label: "Afrique", value: "afrique" }
-          - { label: "Asie", value: "asie" }
-          - { label: "Europe", value: "europe" }
-          - { label: "Amériques", value: "ameriques" }
-          - { label: "International", value: "international" }
-      - { label: "Image de couverture", name: "image", widget: "image", required: false }
-      - { label: "Résumé", name: "body", widget: "markdown" }
-      - { label: "Lien externe", name: "url", widget: "string", required: false }
+    files:
+      - name: "liste"
+        label: "Liste des articles"
+        file: "contenu/articles.json"
+        fields:
+          - label: "Articles"
+            name: "articles"
+            widget: "list"
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "datetime" }
+              - label: "Catégorie"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "Afrique", value: "afrique" }
+                  - { label: "Asie", value: "asie" }
+                  - { label: "Europe", value: "europe" }
+                  - { label: "Amériques", value: "ameriques" }
+                  - { label: "International", value: "international" }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - { label: "Résumé", name: "body", widget: "text" }
+              - { label: "Lien externe", name: "url", widget: "string", required: false }
 
   - name: "videos"
     label: "Vidéos"
-    label_singular: "Vidéo"
-    folder: "contenu/videos"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Titre", name: "title", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Miniature", name: "thumbnail", widget: "image", required: false }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Lien de la vidéo (YouTube, Vimeo…)", name: "url", widget: "string" }
+    files:
+      - name: "liste"
+        label: "Liste des vidéos"
+        file: "contenu/videos.json"
+        fields:
+          - label: "Vidéos"
+            name: "videos"
+            widget: "list"
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "datetime" }
+              - { label: "Miniature", name: "thumbnail", widget: "image", required: false }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Lien vidéo", name: "url", widget: "string" }
 
   - name: "photos"
     label: "Photos"
-    label_singular: "Photo"
-    folder: "contenu/photos"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Titre / Légende", name: "title", widget: "string" }
-      - { label: "Image", name: "image", widget: "image" }
+    files:
+      - name: "galerie"
+        label: "Galerie photo"
+        file: "contenu/photos.json"
+        fields:
+          - label: "Photos"
+            name: "photos"
+            widget: "list"
+            fields:
+              - { label: "Titre / Légende", name: "title", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
 
   - name: "documents"
     label: "Documents"
-    label_singular: "Document"
-    folder: "contenu/documents"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Titre", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Taille du fichier", name: "size", widget: "string", required: false }
-      - { label: "Fichier", name: "file", widget: "file" }
+    files:
+      - name: "liste"
+        label: "Liste des documents"
+        file: "contenu/documents.json"
+        fields:
+          - label: "Documents"
+            name: "documents"
+            widget: "list"
+            fields:
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Taille", name: "size", widget: "string", required: false }
+              - { label: "Fichier", name: "file", widget: "file" }
