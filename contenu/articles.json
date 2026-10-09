@@ -1,3 +1,12 @@
 {
-  "articles": []
+  "articles": [
+    {
+      "date": "2026-10-09T14:32:00.000+02:00",
+      "title": "bonjour",
+      "category": "afrique",
+      "image": "https://res.cloudinary.com/vzh3xban/image/upload/v1791545175/cld-sample-2.jpg",
+      "body": "le climat en afrique ",
+      "url": "pas de lien"
+    }
+  ]
 }
