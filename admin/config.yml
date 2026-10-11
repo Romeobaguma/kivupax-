@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Romeobaguma/kivupax-
   branch: main
+  base_url: https://kivupax-media.pages.dev
+  auth_endpoint: api/auth
 
 media_library:
   name: cloudinary
