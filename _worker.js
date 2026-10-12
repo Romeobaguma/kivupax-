@@ -2,7 +2,6 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    // Route 1 : lancement de l'authentification GitHub
     if (url.pathname === '/api/auth') {
       const client_id = env.GITHUB_CLIENT_ID;
       const redirect_uri = `${url.origin}/api/callback`;
@@ -10,7 +9,6 @@ export default {
       return Response.redirect(authUrl, 302);
     }
 
-    // Route 2 : callback après autorisation GitHub
     if (url.pathname === '/api/callback') {
       const code = url.searchParams.get('code');
       const tokenResponse = await fetch('https://github.com/login/oauth/access_token', {
@@ -26,7 +24,6 @@ export default {
       const tokenData = await tokenResponse.json();
       const token = tokenData.access_token;
 
-      // Renvoie le token à Decap CMS
       return new Response(`
         <script>
           window.opener.postMessage(
@@ -37,7 +34,7 @@ export default {
       `, { headers: { 'Content-Type': 'text/html' } });
     }
 
-    // Toutes les autres routes : 404
-    return new Response('Not Found', { status: 404 });
+    // Toutes les autres requêtes → servir les fichiers statiques
+    return env.ASSETS.fetch(request);
   }
 };
